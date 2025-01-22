@@ -153,15 +153,19 @@ export function BarcodeScanner(props:ScannerProps) {
         }
       },
     });
-    camera.setScanRegion({
-      left: 0,
-      top: 0.4,
-      right: 1,
-      bottom: 0.6,
-      measuredInPercentage: true,
-    });
+    
     camera.open();
     router.startCapturing('Dotcode');
+    
+    setTimeout(()=>{
+      camera.setScanRegion({
+        left: 0,
+        top: 0.4,
+        right: 1,
+        bottom: 0.6,
+        measuredInPercentage: true,
+      });
+    },500)
 
     return () => {
       router.removeResultReceiver(resultReceiver!);
