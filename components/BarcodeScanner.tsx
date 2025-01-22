@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {CameraEnhancer, CameraView, CaptureVisionRouter, DecodedBarcodesResult, EnumPresetTemplate} from 'dynamsoft-capture-vision-react-native';
+import {CameraEnhancer, CameraView, CaptureVisionRouter, DecodedBarcodesResult} from 'dynamsoft-capture-vision-react-native';
 import { StyleSheet } from 'react-native';
 
 const dotcodeTemplate = `{
@@ -148,6 +148,13 @@ export function BarcodeScanner() {
           console.log(result.items[0].text);
         }
       },
+    });
+    camera.setScanRegion({
+      left: 0,
+      top: 0.4,
+      right: 1,
+      bottom: 0.6,
+      measuredInPercentage: true,
     });
     camera.open();
     router.startCapturing('Dotcode');
