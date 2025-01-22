@@ -1,3 +1,5 @@
+# React Native DotCode Scanner
+
 DotCode is two-dimensional (2D) matrix barcode mainly used in the tobacco industry with advantages like the ability to apply the barcode by high-speed industrial printers and other methods like laser engraving.
 
 ![cropped-dotcode](https://github.com/user-attachments/assets/42428537-fa14-451f-a21a-ba49a39023ca)
