@@ -133,7 +133,11 @@ const dotcodeTemplate = `{
   ]
 }`;
 
-export function BarcodeScanner() {
+export interface ScannerProps{
+  onScanned?: (result:DecodedBarcodesResult) => void;
+}
+
+export function BarcodeScanner(props:ScannerProps) {
   const cameraView = useRef<CameraView>(null);
   const camera = CameraEnhancer.getInstance();
   const router = CaptureVisionRouter.getInstance();
@@ -144,8 +148,8 @@ export function BarcodeScanner() {
     let resultReceiver = router.addResultReceiver({
       onDecodedBarcodesReceived: (result: DecodedBarcodesResult) =>  {
         console.log('scanned');
-        if (result.items && result.items.length > 0) {
-          console.log(result.items[0].text);
+        if (props.onScanned) {
+          props.onScanned(result);
         }
       },
     });
@@ -164,7 +168,7 @@ export function BarcodeScanner() {
       camera.close();
       router.stopCapturing();
     };
-  }, [camera, router, cameraView]);
+  }, [camera, router, cameraView, props]);
 
   return (
     <CameraView style={styles.container} ref={cameraView} />
