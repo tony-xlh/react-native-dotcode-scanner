@@ -6,6 +6,14 @@ The demo uses Dynamsoft Barcode Reader to read DotCode in a React Native app.
 
 You can learn more about DotCode and Dynamsoft Barcode Reader [here](https://www.dynamsoft.com/barcode-reader/barcode-types/dotcode/).
 
+Demo video:
+
+
+
+https://github.com/user-attachments/assets/373adaeb-f7c5-46b3-9925-c28e98990aa6
+
+
+
 ## How to Run
 
 For Android:
